@@ -17,7 +17,7 @@ root = tkinter.Tk()
 root.withdraw()
 fTyp = [("",".txt")]
 #iDir = os.path.abspath(os.path.dirname(path12))
-print(__file__)
+#print(__file__)
 #tkinter.messagebox.showinfo('プログラム','処理ファイルを選択してください！')
 fd = tkinter.filedialog.askopenfilename(filetype = fTyp, initialdir = path12)
 
@@ -50,12 +50,15 @@ for i in num:
                 #fwhat = lines_enti[f]
                 listn = lines_enti[i:f]
                 for j in range(len(listn)):
-                    ws.cell(k,j+1,listn[j])
+                    ws.cell(k,8,listn[12])
                     #print(listn[j])
                 else:
                     k += 1
                     break                
                     
-    
+root =tkinter.Tk()
+root.withdraw()
+Type1 = [("", "")]
+savedir = tkinter.filedialog.askdirectory(filetype = Type1, initialdir = path12)
 wb.save('C:\\users\\田島\\Documents\\de.xlsx')
 
