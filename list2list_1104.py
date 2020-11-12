@@ -56,7 +56,7 @@ for i in num:
                     k += 1
                     break                
                     
-root =tkinter.Tk()
+root1 =tkinter.Tk()
 root.withdraw()
 Type1 = [("", "")]
 savedir = tkinter.filedialog.askdirectory(filetype = Type1, initialdir = path12)
