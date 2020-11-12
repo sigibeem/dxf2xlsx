@@ -4,13 +4,13 @@
 目的：本プログラムによって作成したリストに対して，（"1\t"で）
 検索をかけ配管クラスを引っ張ってくる
 """
-import pathlib, os, tkinter, tkinter.filedialog, tkinter.messagebox
+
+import pathlib, os, tkinter, tkinter.filedialog, tkinter.messagebox, tkinter.filedialog
 from openpyxl import Workbook
 
 wb = Workbook()
 ws = wb.active
 path12 = pathlib.Path("C:\\users\\田島\\Documents")
-
 
 # ファイル選択ダイアログの表示
 root = tkinter.Tk()
@@ -35,30 +35,27 @@ for a in range(len(lines_list)):
                 if b > entities and lines_list[b] == "0\tENDSEC\n":
                     entiend = b
                     break
-lines_enti = lines_list[entities:entiend]
+lines_enti = lines_list[a:b]
 #print(lines_enti)
 
 st = "0\tTEXT\n"
 endi = "0\t"
 k = 1
 num = range(len(lines_enti))
+lines_entit = tuple(lines_enti)
 for i in num:
-    if lines_enti[i] == st:
-        #iwhat = lines_enti[i]
+    if lines_entit[i] == st:
+        print(type(lines_entit))
+        #iwhat = lines_entit[i]
         for f in num:
-            if lines_enti[f].startswith(endi) and i < f:
-                #fwhat = lines_enti[f]
-                listn = lines_enti[i:f]
-                for j in range(len(listn)):
-                    ws.cell(k,8,listn[12])
-                    #print(listn[j])
-                else:
-                    k += 1
-                    break                
-                    
-root1 =tkinter.Tk()
-root.withdraw()
-Type1 = [("", "")]
-savedir = tkinter.filedialog.askdirectory(filetype = Type1, initialdir = path12)
-wb.save('C:\\users\\田島\\Documents\\de.xlsx')
+            if lines_entit[f].startswith(endi) and i < f:
+                #fwhat = lines_entit[f]
+                listn = lines_entit[i:f]
+                print(listn)
+                list23 =[]
+                list23.append(listn[8])
+
+print("end")
+
+                
 
