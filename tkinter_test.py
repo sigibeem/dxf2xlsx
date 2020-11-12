@@ -5,8 +5,8 @@ root.title("tkinter win")
 root.mainloop()
 
 """
-root = Tk()
-root.withdraw()
+root12 = Tk()
+root12.withdraw()
 Idir = "C:\\Users\\田島\\documents"
 Type = [("","")]
 root.filename =  filedialog.asksaveasfilename(initialdir = Idir,title = "Save as",filetypes =  Type)

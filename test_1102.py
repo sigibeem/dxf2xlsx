@@ -13,10 +13,18 @@ list1027 = ('20\t584.0\n', '0\tLINE\n', '5\tAE\n', '330\t18\n', '100\tAcDbEntity
 
 
 
-print(type(list1027))
-
 st = "0\tLINE\n"
 endi = "0\t"
+nlist = ()
+print(dir(nlist))
+for i in range(len(list1027)):
+    if list1027[i] == st:
+        for f in range(len(list1027)):
+            if list1027[f].startswith('0\t') and i < f:
+                print("h")
+            
+
+"""
 num = range(len(list1027))
 for i in num:
     if list1027[i] == st:
@@ -24,6 +32,13 @@ for i in num:
         for f in num:
             if list1027[f].startswith('0\t') and i < f:
                 fwhat = list1027[f]
-                print(list1027[i:f]) 
-                break
 
+                list_+ k = list1027[i:f]
+                print(list1027[i:f])
+                k += 1 
+                break
+for l in k:
+    print(list_k)
+
+
+"""
