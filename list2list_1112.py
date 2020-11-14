@@ -34,7 +34,7 @@ for a in range(len(lines_list)):
             for b in range(len(lines_list)):        
                 if b > entities and lines_list[b] == "0\tENDSEC\n":
                     entiend = b
-                    break
+                    break#breakの位置が不適切なために，aが最初のentitiesからずれてる。（最初のa=6765,最終的なa=62043)
 lines_enti = lines_list[entities:entiend]
 #print(lines_enti)
 
@@ -56,5 +56,5 @@ for i in num:
                     k += 1
                     break                
                     
-wb.save('C:\\users\\田島\\Documents\\de.xlsx')
+wb.save('C:\\users\\田島\\Documents\\de1.xlsx')
 
