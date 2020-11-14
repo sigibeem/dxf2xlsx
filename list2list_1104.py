@@ -42,19 +42,19 @@ st = "0\tTEXT\n"
 endi = "0\t"
 k = 1
 num = range(len(lines_enti))
-lines_entit = tuple(lines_enti)
-for i in num:
-    if lines_entit[i] == st:
-        print(type(lines_entit))
-        #iwhat = lines_entit[i]
-        for f in num:
-            if lines_entit[f].startswith(endi) and i < f:
-                #fwhat = lines_entit[f]
-                listn = lines_entit[i:f]
-                print(listn)
-                list23 =[]
-                list23.append(listn[8])
 
+list23 =[]
+for i in num:
+    if lines_enti[i] == st:
+        print(type(lines_enti))
+        #iwhat = lines_enti[i]
+        for f in num:
+            if lines_enti[f].startswith(endi) and i < f:
+                #fwhat = lines_enti[f]
+                listn = lines_enti[i:f]
+                list23.append(listn[8])#8番目が必ずライン名ではない。そのため，インデックス指定ではなくstarwith("1/t")で指定
+
+print(list23)
 print("end")
 
                 
