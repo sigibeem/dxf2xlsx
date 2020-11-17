@@ -59,6 +59,15 @@ for i in num:
                 else:
                     k += 1
                     break                
-print(listf1)
-#wb.save('C:\\users\\田島\\Documents\\de1.xlsx')
+keywd = "-"
+listf12 = [i for i in listf1 if keywd in i]
 
+fType2 = [("text file," "*.txt")]
+fsaveloot = pathlib.Path("C:\\Users\\田島\\Documents")
+root = tkinter.Tk()
+root.withdraw()
+fd2 = tkinter.filedialog.asksaveasfilename(initialdir = fsaveloot, title = "Save as", filetypes = fType2)
+path13 = pathlib.Path(fd2.replace('/', '\\'))
+with open(path13, "w", encoding="utf-8") as stxt:
+    stxt.writelines(listf12)
+#wb.save('C:\\users\\田島\\Documents\\de1.xlsx')
