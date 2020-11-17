@@ -40,7 +40,9 @@ lines_enti = lines_list[entities:entiend]
 
 st = "0\tTEXT\n"
 endi = "0\t"
+endii = "1\t"
 k = 1
+listf1 =[]
 num = range(len(lines_enti))
 for i in num:
     if lines_enti[i] == st:
@@ -50,11 +52,13 @@ for i in num:
                 #fwhat = lines_enti[f]
                 listn = lines_enti[i:f]
                 for j in range(len(listn)):
-                    ws.cell(k,8,listn[12])
+                    target = listn[j]
+                    if target.startswith(endii):
+                        listf1.append(listn[j])
                     #print(listn[j])
                 else:
                     k += 1
                     break                
-                    
-wb.save('C:\\users\\田島\\Documents\\de1.xlsx')
+print(listf1)
+#wb.save('C:\\users\\田島\\Documents\\de1.xlsx')
 
