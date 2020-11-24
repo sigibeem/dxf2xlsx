@@ -58,14 +58,15 @@ for i in num:
                     #print(listn[j])
                 else:
                     k += 1
-                    break                
+
+"""                    break                
 keywd = "-" 
 listf12 = [i for i in listf1 if i.count(keywd) ==  2]
 
 
 print(listf12)
-
 """
+
 fType2 = [("text file," "*.txt")]
 fsaveloot = pathlib.Path("C:\\Users\\田島\\Documents")
 root = tkinter.Tk()
@@ -75,4 +76,3 @@ path13 = pathlib.Path(fd2.replace('/', '\\'))
 with open(path13, "w", encoding="utf-8") as stxt:
     stxt.writelines(listf12)
 #wb.save('C:\\users\\田島\\Documents\\de1.xlsx')
-"""
