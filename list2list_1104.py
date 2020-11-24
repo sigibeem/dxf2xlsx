@@ -40,7 +40,9 @@ lines_enti = lines_list[entities:entiend]
 
 st = "0\tTEXT\n"
 endi = "0\t"
+endii = "1\t"
 k = 1
+key = "-"
 listTS =[]
 num = range(len(lines_enti))
 for i in num:
@@ -50,7 +52,9 @@ for i in num:
             if lines_enti[f].startswith(endi) and i < f:
                 #fwhat = lines_enti[f]
                 listn = lines_enti[i:f]
-                listTS.append(listn)
-                break
+                for j in range(len(listn)):
+                    if listn[j].startswith(endii) and listn[j].count(key) >= 2:
+                        listTS.append(listn)
+                        break
                 
 print(listTS)
