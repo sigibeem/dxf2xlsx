@@ -26,7 +26,6 @@ with open(path, encoding = "utf-8") as dxf_txt:
     lines_list = dxf_txt.readlines()
 
 
-#ENTITIESのインデックス取得
 
 for a in range(len(lines_list)):
         if lines_list[a] == "2\tENTITIES\n":
@@ -35,12 +34,13 @@ for a in range(len(lines_list)):
                 if b > entities and lines_list[b] == "0\tENDSEC\n":
                     entiend = b
                     break
-lines_enti = lines_list[entities:entiend]
+                                
+lines_enti = lines_list[entities:entiend]#ENTITIESのインデックス取得
 #print(lines_enti)
 
 st = "0\tTEXT\n"
-endi = "0\t"
-endii = "1\t"
+target0 = "0\t"
+target1 = "1\t"
 k = 1
 key = "-"
 listTS =[]
@@ -49,11 +49,11 @@ for i in num:
     if lines_enti[i] == st:
         #iwhat = lines_enti[i]
         for f in num:
-            if lines_enti[f].startswith(endi) and i < f:
+            if lines_enti[f].startswith(target0) and i < f:
                 #fwhat = lines_enti[f]
                 listn = lines_enti[i:f]
                 for j in range(len(listn)):
-                    if listn[j].startswith(endii) and listn[j].count(key) >= 2:
+                    if listn[j].startswith(target1) and listn[j].count(key) >= 2:
                         listTS.append(listn)
                         break
                 
