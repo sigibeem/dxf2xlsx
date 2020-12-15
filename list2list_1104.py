@@ -43,18 +43,17 @@ target0 = "0\t"
 target1 = "1\t"
 k = 1
 key = "-"
-listTS =[]
-num = range(len(lines_enti))
-for i in num:
+listIndex =[]
+listn = []
+
+for i in range(len(lines_enti)):
     if lines_enti[i] == st:
-        #iwhat = lines_enti[i]
-        for f in num:
-            if lines_enti[f].startswith(target0) and i < f:
-                #fwhat = lines_enti[f]
-                listn = lines_enti[i:f]
-                for j in range(len(listn)):
-                    if listn[j].startswith(target1) and listn[j].count(key) >= 2:
-                        listTS.append(listn)
-                        break
-                
-print(listTS)
+        listIndex.append(i)
+try:
+    for f in range(len(listIndex)):
+        b = lines_enti[listIndex[f]:listIndex[f+1]]
+        listn.append(b)
+except IndexError:
+    b1 = lines_enti[listIndex[f]:]
+    listn.append(b1)
+print(listn)
