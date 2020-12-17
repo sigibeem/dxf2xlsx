@@ -37,24 +37,33 @@ for a in range(len(lines_list)):
                                 
 lines_enti = lines_list[entities:entiend]#ENTITIESのインデックス取得
 #print(lines_enti)
-
+list_num = len(lines_enti)
 st = "0\tTEXT\n"
 target0 = "0\t"
 target1 = "1\t"
-k = 1
 key = "-"
 listIndex =[]
 listn = []
+listTS = []
 
 for i in range(len(lines_enti)):
     if lines_enti[i] == st:
         listIndex.append(i)
 try:
     for f in range(len(listIndex)):
-        b = lines_enti[listIndex[f]:listIndex[f+1]]
-        
-        listn.append(b)
+        startV = listIndex[f]
+        endV = listIndex[f+1]
+        for j in range(startV, endV):
+            j1 = lines_enti[j]
+            listn.append(j1)
 except IndexError:
-    b1 = lines_enti[listIndex[f]:]
-    listn.append(b1)
-print(listn)
+    for f in range(startV,list_num-1):
+        j1 = lines_enti[f]
+        listn.append(j1)
+
+
+for k in range(len(listn)):
+                    if listn[k].startswith(target1) and listn[k].count(key) >= 2:
+                        bi = listn[k]
+                        print(bi.strip('\n')) 
+                        listTS.append(bi)
