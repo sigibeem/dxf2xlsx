@@ -52,6 +52,7 @@ for i in range(len(lines_enti)):
 try:
     for f in range(len(listIndex)):
         b = lines_enti[listIndex[f]:listIndex[f+1]]
+        
         listn.append(b)
 except IndexError:
     b1 = lines_enti[listIndex[f]:]
