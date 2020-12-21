@@ -67,3 +67,4 @@ for k in range(len(listn)):
                         bi = listn[k]
                         print(bi.strip('\n')) 
                         listTS.append(bi)
+print("jiel")
