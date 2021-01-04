@@ -45,6 +45,7 @@ key = "-"
 listIndex =[]
 listn = []
 listTS = []
+row = 1
 
 for i in range(len(lines_enti)):
     if lines_enti[i] == st:
@@ -61,9 +62,25 @@ except IndexError:
         j1 = lines_enti[f]
         listn.append(j1)
 
-
+"""
 for k in range(len(listn)):
                     if listn[k].startswith(target1) and listn[k].count(key) >= 2:
                         bi = listn[k]
                         print(bi.strip('\n')) 
                         listTS.append(bi)
+"""
+#print(listn)
+
+row = col = 1
+for i1 in range(len(listn)):
+    if listn[i1].startswith(target0):
+        row += 1
+        col = 1
+        ws.cell(row, col, listn[i1])
+        col += 1
+    else:
+        ws.cell(row, col, listn[i1])
+        col += 1
+
+
+wb.save("C:\\Users\\田島\\desktop\\d11e.xlsx")
