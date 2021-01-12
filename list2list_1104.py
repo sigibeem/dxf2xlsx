@@ -26,6 +26,7 @@ with open(path, encoding = "utf-8") as dxf_txt:
     lines_list = dxf_txt.readlines()
 
 
+#ENTITIESのインデックス取得
 
 for a in range(len(lines_list)):
         if lines_list[a] == "2\tENTITIES\n":
@@ -34,53 +35,22 @@ for a in range(len(lines_list)):
                 if b > entities and lines_list[b] == "0\tENDSEC\n":
                     entiend = b
                     break
-                                
-lines_enti = lines_list[entities:entiend]#ENTITIESのインデックス取得
+lines_enti = lines_list[entities:entiend]
 #print(lines_enti)
-list_num = len(lines_enti)
+
 st = "0\tTEXT\n"
-target0 = "0\t"
-target1 = "1\t"
-key = "-"
-listIndex =[]
-listn = []
-listTS = []
-row = 1
-
-for i in range(len(lines_enti)):
+endi = "0\t"
+k = 1
+listTS =[]
+num = range(len(lines_enti))
+for i in num:
     if lines_enti[i] == st:
-        listIndex.append(i)
-try:
-    for f in range(len(listIndex)):
-        startV = listIndex[f]
-        endV = listIndex[f+1]
-        for j in range(startV, endV):
-            j1 = lines_enti[j]
-            listn.append(j1)
-except IndexError:
-    for f in range(startV,list_num-1):
-        j1 = lines_enti[f]
-        listn.append(j1)
-
-"""
-for k in range(len(listn)):
-                    if listn[k].startswith(target1) and listn[k].count(key) >= 2:
-                        bi = listn[k]
-                        print(bi.strip('\n')) 
-                        listTS.append(bi)
-"""
-#print(listn)
-
-row = col = 1
-for i1 in range(len(listn)):
-    if listn[i1].startswith(target0):
-        row += 1
-        col = 1
-        ws.cell(row, col, listn[i1])
-        col += 1
-    else:
-        ws.cell(row, col, listn[i1])
-        col += 1
-
-
-wb.save("C:\\Users\\田島\\desktop\\d11e.xlsx")
+        #iwhat = lines_enti[i]
+        for f in num:
+            if lines_enti[f].startswith(endi) and i < f:
+                #fwhat = lines_enti[f]
+                listn = lines_enti[i:f]
+                listTS.append(listn)
+                break
+                
+print(listTS)
