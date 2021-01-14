@@ -7,7 +7,5 @@ for i in range(len(list1)):
         if list1[i][j] == "ji":
             sub = []
             sub.append(list1[i][j])
-        else:
-            continue
     list12.append(sub)
 print(list12)
