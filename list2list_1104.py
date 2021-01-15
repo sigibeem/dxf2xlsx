@@ -57,8 +57,13 @@ for i in num:
 for i in range(len(listTS)):
     sub = []
     for j in range(len(listTS[i])):
-        for k in targetlist:
+        for k in targetlist:    
             if listTS[i][j].startswith(k):
                 sub.append(listTS[i][j])
     listonly.append(sub)
-print(listonly)
+#print(listonly)
+
+for i in range(len(listonly)):
+    for j in range(len(listonly[i])):
+        ws.cell(i+1, j+1, listonly[i][j])
+wb.save("C:\\Users\\田島\\desktop\\di.xlsx")
