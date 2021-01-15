@@ -10,7 +10,8 @@ from openpyxl import Workbook
 wb = Workbook()
 ws = wb.active
 path12 = pathlib.Path("C:\\users\\田島\\Documents")
-
+targetlist = ["8\t", "10\t", "20\t", "30\t", "1\t", "11\t", "21\t", "31\t"]
+listonly = []
 
 # ファイル選択ダイアログの表示
 root = tkinter.Tk()
@@ -53,4 +54,11 @@ for i in num:
                 listTS.append(listn)
                 break
                 
-print(listTS)
+for i in range(len(listTS)):
+    sub = []
+    for j in range(len(listTS[i])):
+        for k in targetlist:
+            if listTS[i][j].startswith(k):
+                sub.append(listTS[i][j])
+    listonly.append(sub)
+print(listonly)
