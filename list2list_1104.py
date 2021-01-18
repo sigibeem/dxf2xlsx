@@ -24,33 +24,33 @@ fd = tkinter.filedialog.askopenfilename(filetype = fTyp, initialdir = path12)
 
 path =  pathlib.Path(fd.replace('/', '\\'))
 with open(path, encoding = "utf-8") as dxf_txt:
-    lines_list = dxf_txt.readlines()
+    alldxf = dxf_txt.readlines()
 
 
 #ENTITIESのインデックス取得
 
-for a in range(len(lines_list)):
-        if lines_list[a] == "2\tENTITIES\n":
+for a in range(len(alldxf)):
+        if alldxf[a] == "2\tENTITIES\n":
             entities = a
-            for b in range(len(lines_list)):        
-                if b > entities and lines_list[b] == "0\tENDSEC\n":
+            for b in range(len(alldxf)):        
+                if b > entities and alldxf[b] == "0\tENDSEC\n":
                     entiend = b
                     break
-lines_enti = lines_list[entities:entiend]
-#print(lines_enti)
+dxf_enti = alldxf[entities:entiend]#dsf_enti=dxfファイルのentities箇所の抜粋
+#print(dxf_enti)
 
 st = "0\tTEXT\n"
 endi = "0\t"
 k = 1
 listTS =[]
-num = range(len(lines_enti))
+num = range(len(dxf_enti))
 for i in num:
-    if lines_enti[i] == st:
-        #iwhat = lines_enti[i]
+    if dxf_enti[i] == st:
+        #iwhat = dxf_enti[i]
         for f in num:
-            if lines_enti[f].startswith(endi) and i < f:
-                #fwhat = lines_enti[f]
-                listn = lines_enti[i:f]
+            if dxf_enti[f].startswith(endi) and i < f:
+                #fwhat = dxf_enti[f]
+                listn = dxf_enti[i:f]
                 listTS.append(listn)
                 break
                 
@@ -62,8 +62,9 @@ for i in range(len(listTS)):
                 sub.append(listTS[i][j])
     listonly.append(sub)
 #print(listonly)
-
+"""excelへのテキスト（ライン情報）のみの転写
 for i in range(len(listonly)):
     for j in range(len(listonly[i])):
         ws.cell(i+1, j+1, listonly[i][j])
-wb.save("C:\\Users\\田島\\desktop\\di.xlsx")
+wb.save("C:\\Users\\田島\\desktop\\di.xlsx")　
+"""

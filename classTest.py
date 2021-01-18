@@ -1,27 +1,20 @@
-class Fish:
-    def __init__(self, name, build="ほね", eyelids=False):
-        self.name = name
-        self.build = build
-        self.eyelids = eyelids
-    def swim(self):
-        print("こちらの魚は泳ぎます")
-    def swim_back(self):
-        print("こちらの魚は後ろ向きにも泳ぎます")
+class Qlist:
+    def Sort(self,target, end):
+        num = range(len(list11))
+        listTS = []
+        for i in num:
+            if list11[i] == target:
+        #iwhat = list11[i]
+                for f in num:
+                    if list11[f].startswith(end) and i < f:
+                #fwhat = list11[f]
+                        listn = list11[i:f]
+                        listTS.append(listn)
+                        break
+        return listTS
 
-class Medaka(Fish):
-    pass
+list11 = ["fwe", "fwei", "12fewji", "qwods", "12fewji", "weow", "qwods"]
 
-class Mystack:
-    def __init__(self):
-        self.stack = []
-    def push(self, item):
-        self.stack.append(item)
-    def pull(self):
-        a = self.stack[-1]
-        del self.stack[-1]
-        return a
-a = Mystack()
-a.push(1)
-a.push(2)
-print(a.pull())
-print(a)
+a = Qlist()
+b = a.Sort("12fewji", "q")
+print(b)
