@@ -10,7 +10,7 @@ class Fish:
 
 class Medaka(Fish):
     pass
-
+"""
 class Mystack:
     def __init__(self):
         self.stack = []
@@ -20,8 +20,9 @@ class Mystack:
         a = self.stack[-1]
         del self.stack[-1]
         return a
-a = Mystack()
-a.push(1)
-a.push(2)
-print(a.pull())
+"""
+a = Fish("hi")
+a.swim()
+a.swim_back()
+#print(a.pull())
 print(a)
