@@ -7,10 +7,10 @@
 import pathlib, os, tkinter, tkinter.filedialog, tkinter.messagebox
 from openpyxl import Workbook
 
+
 wb = Workbook()
 ws = wb.active
 path12 = pathlib.Path("C:\\users\\田島\\Documents")
-targetlist = ["8\t", "10\t", "20\t", "30\t", "1\t", "11\t", "21\t", "31\t"]
 listonly = []
 
 # ファイル選択ダイアログの表示
@@ -38,29 +38,42 @@ for a in range(len(alldxf)):
                     break
 dxf_enti = alldxf[entities:entiend]#dsf_enti=dxfファイルのentities箇所の抜粋
 #print(dxf_enti)
-
-st = "0\tTEXT\n"
-endi = "0\t"
-k = 1
-listTS =[]
-num = range(len(dxf_enti))
-for i in num:
-    if dxf_enti[i] == st:
+class Qlist:
+    def Sort(self,target, end,targetlist):
+        num = range(len(dxf_enti))
+        listTS = []
+        listonly = []
+        for i in num:
+            if dxf_enti[i] == target:
         #iwhat = dxf_enti[i]
-        for f in num:
-            if dxf_enti[f].startswith(endi) and i < f:
+                for f in num:
+                    if dxf_enti[f].startswith(end) and i < f:
                 #fwhat = dxf_enti[f]
-                listn = dxf_enti[i:f]
-                listTS.append(listn)
-                break
-                
-for i in range(len(listTS)):
-    sub = []
-    for j in range(len(listTS[i])):
-        for k in targetlist:    
-            if listTS[i][j].startswith(k):
-                sub.append(listTS[i][j])
-    listonly.append(sub)
+                        listn = dxf_enti[i:f]
+                        listTS.append(listn)
+                        break
+        for i in range(len(listTS)):
+            sub = []
+            for j in range(len(listTS[i])):
+                for k in targetlist:
+                    if listTS[i][j].startswith(k):
+                        sub.append(listTS[i][j])
+            listonly.append(sub)
+        return listonly
+Ttargetlist = ["8\t", "10\t", "20\t", "30\t", "1\t", "11\t", "21\t", "31\t"]
+Ltargetlist = ["8\t", "10\t", "20\t", "90\t"]
+a = Qlist()
+b = a.Sort("0\tTEXT\n", "0\t", Ttargetlist)
+c = a.Sort("0\tLINE\n", "0\t",Ltargetlist) 
+
+list13 = []
+for i in range(len(c)):#図枠の位置データ採取
+    for j in range(len(c[i])):
+        if c[i][j] == "8\t図枠\n":
+            list13.append(c[i][1:])
+            break
+
+print(list13)
 #print(listonly)
 """excelへのテキスト（ライン情報）のみの転写
 for i in range(len(listonly)):
