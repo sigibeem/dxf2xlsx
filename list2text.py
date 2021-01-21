@@ -25,7 +25,7 @@ try:
             if lines_strip[i] =="EOF":
                 break
             g.write(lines_strip[i]+ '\t' + lines_strip[i+1] +'\n')
-               
+
         i = i + 1
 except FileExistsError:
     print("this file name has already been.")
