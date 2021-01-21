@@ -4,8 +4,27 @@
 目的：本プログラムによって作成したリストに対して，（"1\t"で）
 検索をかけ配管クラスを引っ張ってくる
 """
-import pathlib, os, tkinter, tkinter.filedialog, tkinter.messagebox
+import pathlib, os, tkinter, tkinter.filedialog, tkinter.messagebox, math
 from openpyxl import Workbook
+
+#filename = input("design library内のdxfファイル名(拡張子を除く）を指定してください:")
+#savename = input("txtファイルとして保存する際の名前（拡張子を除く）を記入してください:")
+path =  pathlib.Path("C:\\Users\\田島\\Documents\\py\\data\\design library\\図枠と_EFD_textのみ.dxf")
+
+with open(path, encoding = "utf-8") as f:
+    lines = f.readlines()
+    lines_strip = [line.strip() for line in lines]
+    linesnum = math.ceil(len(lines_strip))
+
+try:
+    with open("C:\\Users\\田島\\Documents\\py\\data\\design library\\図枠と_EFD_textのみ.txt", encoding = "utf-8", mode="x") as g:
+        for i in range(0, linesnum, 2):
+            if lines_strip[i] =="EOF":
+                break
+            g.write(lines_strip[i]+ '\t' + lines_strip[i+1] +'\n')
+
+except FileExistsError:
+    print("this file name has already been.")
 
 
 wb = Workbook()
@@ -18,7 +37,7 @@ root = tkinter.Tk()
 root.withdraw()
 fTyp = [("",".txt")]
 #iDir = os.path.abspath(os.path.dirname(path12))
-print(__file__)
+
 #tkinter.messagebox.showinfo('プログラム','処理ファイルを選択してください！')
 fd = tkinter.filedialog.askopenfilename(filetype = fTyp, initialdir = path12)
 
