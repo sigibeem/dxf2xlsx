@@ -10,7 +10,8 @@ from openpyxl import Workbook
 wb = Workbook()
 ws = wb.active
 path12 = pathlib.Path("C:\\users\\田島\\Documents")
-
+targetlist = ["8\t", "10\t", "20\t", "30\t", "1\t", "11\t", "21\t", "31\t"]
+listonly = []
 
 # ファイル選択ダイアログの表示
 root = tkinter.Tk()
@@ -23,47 +24,47 @@ fd = tkinter.filedialog.askopenfilename(filetype = fTyp, initialdir = path12)
 
 path =  pathlib.Path(fd.replace('/', '\\'))
 with open(path, encoding = "utf-8") as dxf_txt:
-    lines_list = dxf_txt.readlines()
+    alldxf = dxf_txt.readlines()
 
 
+#ENTITIESのインデックス取得
 
-for a in range(len(lines_list)):
-        if lines_list[a] == "2\tENTITIES\n":
+for a in range(len(alldxf)):
+        if alldxf[a] == "2\tENTITIES\n":
             entities = a
-            for b in range(len(lines_list)):        
-                if b > entities and lines_list[b] == "0\tENDSEC\n":
+            for b in range(len(alldxf)):        
+                if b > entities and alldxf[b] == "0\tENDSEC\n":
                     entiend = b
                     break
-                                
-lines_enti = lines_list[entities:entiend]#ENTITIESのインデックス取得
-#print(lines_enti)
-list_num = len(lines_enti)
+dxf_enti = alldxf[entities:entiend]#dsf_enti=dxfファイルのentities箇所の抜粋
+#print(dxf_enti)
+
 st = "0\tTEXT\n"
-target0 = "0\t"
-target1 = "1\t"
-key = "-"
-listIndex =[]
-listn = []
-listTS = []
-
-for i in range(len(lines_enti)):
-    if lines_enti[i] == st:
-        listIndex.append(i)
-try:
-    for f in range(len(listIndex)):
-        startV = listIndex[f]
-        endV = listIndex[f+1]
-        for j in range(startV, endV):
-            j1 = lines_enti[j]
-            listn.append(j1)
-except IndexError:
-    for f in range(startV,list_num-1):
-        j1 = lines_enti[f]
-        listn.append(j1)
-
-
-for k in range(len(listn)):
-                    if listn[k].startswith(target1) and listn[k].count(key) >= 2:
-                        bi = listn[k]
-                        print(bi.strip('\n')) 
-                        listTS.append(bi)
+endi = "0\t"
+k = 1
+listTS =[]
+num = range(len(dxf_enti))
+for i in num:
+    if dxf_enti[i] == st:
+        #iwhat = dxf_enti[i]
+        for f in num:
+            if dxf_enti[f].startswith(endi) and i < f:
+                #fwhat = dxf_enti[f]
+                listn = dxf_enti[i:f]
+                listTS.append(listn)
+                break
+                
+for i in range(len(listTS)):
+    sub = []
+    for j in range(len(listTS[i])):
+        for k in targetlist:    
+            if listTS[i][j].startswith(k):
+                sub.append(listTS[i][j])
+    listonly.append(sub)
+#print(listonly)
+"""excelへのテキスト（ライン情報）のみの転写
+for i in range(len(listonly)):
+    for j in range(len(listonly[i])):
+        ws.cell(i+1, j+1, listonly[i][j])
+wb.save("C:\\Users\\田島\\desktop\\di.xlsx")　
+"""
