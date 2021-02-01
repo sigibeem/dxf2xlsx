@@ -83,7 +83,7 @@ Ttargetlist = ["8\t", "10\t", "20\t", "30\t", "1\t", "11\t", "21\t", "31\t"]
 Ltargetlist = ["8\t", "10\t", "20\t", "90\t"]
 a = Qlist()
 b = a.Sort("0\tTEXT\n", "0\t", Ttargetlist)
-c = a.Sort("0\tLINE\n", "0\t",Ltargetlist) 
+c = a.Sort("0\tLINE\n", "0\t", Ltargetlist) 
 
 list13 = []
 for i in range(len(c)):#図枠の位置データ採取
