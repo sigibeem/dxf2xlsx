@@ -9,6 +9,7 @@ from openpyxl import Workbook
 
 #filename = input("design library内のdxfファイル名(拡張子を除く）を指定してください:")
 #savename = input("txtファイルとして保存する際の名前（拡張子を除く）を記入してください:")
+""" #dxf2txtを行おうとしている
 path =  pathlib.Path("C:\\Users\\田島\\Documents\\py\\data\\design library\\図枠と_EFD_textのみ.dxf")
 
 with open(path, encoding = "utf-8") as f:
@@ -25,7 +26,7 @@ try:
 
 except FileExistsError:
     print("this file name has already been.")
-
+"""
 
 wb = Workbook()
 ws = wb.active
@@ -79,6 +80,7 @@ class Qlist:
                         sub.append(listTS[i][j])
             listonly.append(sub)
         return listonly
+
 Ttargetlist = ["8\t", "10\t", "20\t", "30\t", "1\t", "11\t", "21\t", "31\t"]
 Ltargetlist = ["8\t", "10\t", "20\t", "90\t"]
 a = Qlist()
