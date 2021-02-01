@@ -87,9 +87,6 @@ a = Qlist()
 b = a.Sort("0\tTEXT\n", "0\t", Ttargetlist)
 c = a.Sort("0\tLINE\n", "0\t", Ltargetlist) 
 
-print(b)
-print(c)
-
 list13 = []
 for i in range(len(c)):#図枠の位置データ採取
     for j in range(len(c[i])):
