@@ -1,3 +1,0 @@
-tupplew = ('20\t584.0\n', '0\tLINE\n', '5\tAE\n', '330\t18\n', '100\tAcDbEntity\n', '8\t図枠-仕様欄\n', '6\tContinuous\n', '62\t253\n', '100\tAcDbLine\n', '10\t35.0\n', '20\t15.0\n', '30\t0.0\n', '11\t600.0\n', '21\t15.0\n', '31\t0.0\n', '0\tLINE\n', '5\tAF\n', '330\t18\n', '100\tAcDbEntity\n', '8\t図枠-仕様欄\n', '6\tContinuous\n', '62\t253\n', '100\tAcDbLine\n', '10\t35.0\n', '20\t20.0\n', '30\t0.0\n', '11\t600.0\n', '21\t20.0\n', '31\t0.0\n', '0\tLINE\n', '5\tB0\n', '330\t18\n', '100\tAcDbEntity\n', '8\t図枠-仕様欄\n', '6\tContinuous\n', '62\t253\n', '100\tAcDbLine\n', '10\t35.0\n', '20\t25.0\n', '30\t0.0\n', '11\t600.0\n', '21\t25.0\n', '31\t0.0\n')
-
-print(type(tupplew))    
