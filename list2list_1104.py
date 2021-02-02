@@ -4,12 +4,7 @@
 目的：本プログラムによって作成したリストに対して，（"1\t"で）
 検索をかけ配管クラスを引っ張ってくる
 """
-<<<<<<< HEAD
-
-import pathlib, os, tkinter, tkinter.filedialog, tkinter.messagebox, tkinter.filedialog
-=======
 import pathlib, os, tkinter, tkinter.filedialog, tkinter.messagebox, math
->>>>>>> fefe
 from openpyxl import Workbook
 
 #filename = input("design library内のdxfファイル名(拡張子を除く）を指定してください:")
@@ -36,21 +31,13 @@ except FileExistsError:
 wb = Workbook()
 ws = wb.active
 path12 = pathlib.Path("C:\\users\\田島\\Documents")
-<<<<<<< HEAD
-=======
 listonly = []
->>>>>>> fefe
 
 # ファイル選択ダイアログの表示
 root = tkinter.Tk()
 root.withdraw()
 fTyp = [("",".txt")]
 #iDir = os.path.abspath(os.path.dirname(path12))
-<<<<<<< HEAD
-#print(__file__)
-=======
-
->>>>>>> fefe
 #tkinter.messagebox.showinfo('プログラム','処理ファイルを選択してください！')
 fd = tkinter.filedialog.askopenfilename(filetype = fTyp, initialdir = path12)
 
@@ -68,31 +55,6 @@ for a in range(len(alldxf)):
                 if b > entities and alldxf[b] == "0\tENDSEC\n":
                     entiend = b
                     break
-<<<<<<< HEAD
-lines_enti = lines_list[a:b]
-#print(lines_enti)
-
-st = "0\tTEXT\n"
-endi = "0\t"
-k = 1
-num = range(len(lines_enti))
-
-list23 =[]
-for i in num:
-    if lines_enti[i] == st:
-        print(type(lines_enti))
-        #iwhat = lines_enti[i]
-        for f in num:
-            if lines_enti[f].startswith(endi) and i < f:
-                #fwhat = lines_enti[f]
-                listn = lines_enti[i:f]
-                list23.append(listn[8])#8番目が必ずライン名ではない。そのため，インデックス指定ではなくstarwith("1/t")で指定
-
-print(list23)
-print("end")
-
-                
-=======
 dxf_enti = alldxf[entities:entiend]#dsf_enti=dxfファイルのentities箇所の抜粋
 #print(dxf_enti)
 class Qlist:
@@ -123,7 +85,6 @@ Ltargetlist = ["8\t", "10\t", "20\t", "90\t"]
 a = Qlist()
 b = a.Sort("0\tTEXT\n", "0\t", Ttargetlist)
 c = a.Sort("0\tLINE\n", "0\t", Ltargetlist) 
->>>>>>> fefe
 
 list13 = []
 for i in range(len(c)):#図枠の位置データ採取
