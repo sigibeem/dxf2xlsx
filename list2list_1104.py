@@ -78,7 +78,7 @@ class Qlist:
                     if listTS[i][j].startswith(k):
                         sub.append(listTS[i][j])
             listonly.append(sub)
-        return listonly
+        return listonlybur
 
 Ttargetlist = ["8\t", "10\t", "20\t", "30\t", "1\t", "11\t", "21\t", "31\t"]
 Ltargetlist = ["8\t", "10\t", "20\t", "90\t"]
